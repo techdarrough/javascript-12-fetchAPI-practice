@@ -1,15 +1,18 @@
 //////////////////////////////////////////////////////////////////////////
-//  .---------.          .-------------------------------.
-//  | Level 1 |          | Learn Fetch with a Get Method |
-//  '---------'          '-------------------------------'
-//       ^      (\_/)                    ^
-//       '----- (O.o) -------------------'
-//              (> <)
+//        __       ___________    ____  _______  __          __
+//       |  |     |   ____\   \  /   / |   ____||  |        /_ |
+//       |  |     |  |__   \   \/   /  |  |__   |  |         | |
+//       |  |     |   __|   \      /   |   __|  |  |         | |     (\_/)
+//       |  `----.|  |____   \    /    |  |____ |  `----.    | |     (O.o)
+//       |_______||_______|   \__/     |_______||_______|    |_|     (> <)
+//
+//                  Learn:  Fetch with a Get Method
+//
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
 // Stage:     Level 1, Part 1 of 3
-// Activity:  Get Random Cat Photo
+// Activity:  Random Cat Photo with Fetch Get Method
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
@@ -32,7 +35,7 @@ catBtn.addEventListener("click", () => {
 
 //////////////////////////////////////////////////////////////////////////
 // Stage:     Level 1, Part 2 of 3
-// Activity:  Get Random Food Photo
+// Activity:  Random Food Photo with Fetch Get Method
 ///////////////////////////////////////////////////////////////////////////
 
 // CREATING HTML & SELECTORS
@@ -55,7 +58,7 @@ foodBtn.addEventListener("click", () => {
 
 //////////////////////////////////////////////////////////////////////////
 // Stage:     Level 1, Part 3 of 3
-// Activity:  Get Random Dog Photo
+// Activity:  Random Dog Photo with Fetch Get Method
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
@@ -85,9 +88,21 @@ dogBtn.addEventListener("click", () => {
 });
 
 //////////////////////////////////////////////////////////////////////////
-// Level 2, Part 1 of 3
-// LEARNING CONCEPTS:  FETCH with GET METHOD + URL QUERY PARAMETERS
-// ACTIVITY NAME:      GET POKEMON IMAGE
+//         _                                _               ___
+//        | |      ___    __ __    ___     | |             |_  )
+//        | |__   / -_)   \ V /   / -_)    | |              / /
+//        |____|  \___|    \_/    \___|    |_|             /___|
+//      _|"""""|_|"""""|_|"""""|_|"""""|_|"""""| {======|_|"""""|
+//      "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'./o--000'"`-0-0-'
+//
+//                  Learn:  Fetch with a Get Method
+//                          + URL Query Parameters
+//
+///////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////
+// Stage:     Level 2, Part 1 of 3
+// Activity:  Pokemon Image with Fetch Get Method + Query Parameters
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
@@ -110,9 +125,8 @@ pokeBtn.addEventListener("click", () => {
 });
 
 //////////////////////////////////////////////////////////////////////////
-// Level 2, Part 2 of 3
-// LEARNING CONCEPTS:  FETCH with GET METHOD + URL QUERY PARAMETERS
-// ACTIVITY NAME:      GET YUGIOH CARD IMAGE
+// Stage:     Level 2, Part 2 of 3
+// Activity:  Yugioh Card Image with Fetch Get Method + Query Parameters
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
@@ -138,9 +152,8 @@ yugiBtn.addEventListener("click", () => {
 });
 
 //////////////////////////////////////////////////////////////////////////
-// Level 2, Part 3 of 3
-// LEARNING CONCEPTS:  FETCH with GET METHOD + URL QUERY PARAMETERS
-// ACTIVITY NAME:      Get Digimon Image
+// Stage:     Level 2, Part 3 of 3
+// Activity:  Digimon Image with Fetch Get Method + Query Parameters
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
@@ -164,14 +177,27 @@ digiBtn.addEventListener("click", () => {
 });
 
 //////////////////////////////////////////////////////////////////////////
-// Level 3, Part 1 of 3
-// LEARNING CONCEPTS:  FETCH with GET METHOD + URL QUERY PARAMETERS + INPUT FIELDS
-// ACTIVITY NAME:      GET POKEMON IMAGE
+//            _                           _         ___
+//           ( )                         (_ )     /'_  )
+//           | |       __   _   _    __   | |    (_)_) |       __      _
+//           | |  _  /'__`\( ) ( ) /'__`\ | |     _(_ <      o'')}____//
+//           | |_( )(  ___/| \_/ |(  ___/ | |    ( )_) |      `_/      )
+//           (____/'`\____)`\___/'`\____)(___)   `\____)      (_(_/-(_/
+//
+//                  Learn:  Fetch with a Get Method
+//                          + URL Query Parameters
+//                          + Input Field
+//
+//////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////
+// Stage:     Level 3, Part 1 of 3
+// Activity:  Pokemon Image with Fetch Get Method + Query Parameters + Input Fields
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
 let pokeDiv2 = document.querySelector("#pokeDiv2");
-let pokeText2 = document.querySelector("#pokeImg2");
+let pokeImg2 = document.querySelector("#pokeImg2");
 let pokeInput2 = document.querySelector("#pokeInput2");
 let pokeBtn2 = document.querySelector("#pokeBtn2");
 
@@ -190,9 +216,8 @@ pokeBtn2.addEventListener("click", () => {
 });
 
 //////////////////////////////////////////////////////////////////////////
-// Level 3, Part 2 of 3
-// LEARNING CONCEPTS:  FETCH with GET METHOD + URL QUERY PARAMETERS + INPUT FIELDS
-// ACTIVITY NAME:      GET YUGIOH CARD IMAGE
+// Stage:     Level 3, Part 2 of 3
+// Activity:  Yugioh Card Image with Fetch Get Method + Query Parameters + Input Fields
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
@@ -219,14 +244,13 @@ yugiBtn2.addEventListener("click", () => {
 });
 
 //////////////////////////////////////////////////////////////////////////
-// Level 3, Part 3 of 3
-// LEARNING CONCEPTS:  FETCH with GET METHOD + URL QUERY PARAMETERS + INPUT FIELDS
-// ACTIVITY NAME:      Get Digimon Image
+// Stage:     Level 3, Part 1 of 3
+// Activity:  Digimon Image with Fetch Get Method + Query Parameters + Input Fields
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
 let digiDiv2 = document.querySelector("#digiDiv2");
-let digiText2 = document.querySelector("#digiImg2");
+let digiImg2 = document.querySelector("#digiImg2");
 let digiInput2 = document.querySelector("#digiInput2");
 let digiBtn2 = document.querySelector("#digiBtn2");
 
@@ -243,6 +267,22 @@ async function getDigimonImg2() {
 digiBtn2.addEventListener("click", () => {
   getDigimonImg2();
 });
+
+//////////////////////////////////////////////////////////////////////////
+//
+//          O                          O      o   O
+//          o                          o      O   o                    __
+//          o                          O      o   o                   / _)
+//          O       .oOo.  o   O .oOo. o      OooOO          _/\/\/\_/ /
+//          O       OooO'  O   o OooO' O          O        _|         /
+//          o     . O      o  O  O     o          o      _|  (  | (  |
+//          OOoOooO `OoO'  `o'   `OoO' O          O     /__.-'|_|--|_|
+//
+//               Learn:  Fetch with a Get Method
+//                       + URL Query Parameters
+//                       + Fetch -> Map Method -> Dropdown List
+//
+//////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
 // Level 5, Part 1 of 3
