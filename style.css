@@ -3,8 +3,14 @@ This file is to set up the assignment
 You will write your code in code.js
 */
 
+li {
+  font-size: large;
+}
+
 #level1,
-#level2 {
+#level2,
+#level3 {
+  background-color: lightgrey;
   display: flex;
   flex-direction: row;
 }
@@ -15,10 +21,10 @@ div {
 }
 
 img {
-  width: 20vw;
+  width: 33vw;
   height: 40vh;
 }
 
 button {
-  width: 20vw;
+  width: 33vw;
 }

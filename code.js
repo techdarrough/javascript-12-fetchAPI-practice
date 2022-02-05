@@ -106,97 +106,167 @@ pokeBtn.addEventListener("click", () => {
 //////////////////////////////////////////////////////////////////////////
 // Level 2, Part 2 of 3
 // LEARNING CONCEPTS:  FETCH with GET METHOD + URL QUERY PARAMETERS
-// ACTIVITY NAME:      SUNRISE & SETSET
+// ACTIVITY NAME:      GET YUGIOH CARD IMAGE
 ///////////////////////////////////////////////////////////////////////////
-// https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Tornado%20Dragon
 
 // SELECTORS
-// let sunDiv = document.querySelector("#sunDiv");
-// let sunText = document.querySelector("#sunText");
-// let sunBtn = document.querySelector("#sunBtn");
+let yugiohDiv = document.querySelector("#yugiohDiv");
+let yugiohImg = document.querySelector("#yugiohImg");
+let yugiohBtn = document.querySelector("#yugiohBtn");
 
-// // ASYNC/AWAIT
-// async function getSunriseSunsetData() {
-//   latitude = 40;
-//   longitude = 5;
+// ASYNC/AWAIT
+async function getYugiohCardImg() {
+  let name = "Kuriboh"; // <-- try other name like: "Dark%Magician",  "Tornado%20Dragon", "Lava%Golem"
+  let response = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${name}`);
+  let data = await response.json();
+  console.log(data);
+  console.log(data.data);
+  console.log(data.data[0].card_images[0].image_url);
 
-//   let response = await fetch(
-//     `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}`
-//   );
-//   let data = await response.json();
-//   console.log(data);
+  yugiohImg.src = data.data[0].card_images[0].image_url;
+}
 
-//   sunText.innerHTML = `
-//   For latitude ${latitude} and longitude ${longitude}:<br/>
-//   Sunrise at ${data.results.sunrise}<br/>
-//   Sunset at ${data.results.sunset}
-// `;
-// }
-
-// // EVENT LISTENERS
-// sunBtn.addEventListener("click", () => {
-//   getSunriseSunsetData();
-// });
+// EVENT LISTENERS
+yugiohBtn.addEventListener("click", () => {
+  getYugiohCardImg();
+});
 
 //////////////////////////////////////////////////////////////////////////
 // Level 2, Part 3 of 3
 // LEARNING CONCEPTS:  FETCH with GET METHOD + URL QUERY PARAMETERS
-// ACTIVITY NAME:      Dungeons and Dragons
+// ACTIVITY NAME:      Sunrise & Sunset
 ///////////////////////////////////////////////////////////////////////////
 
-// // SELECTORS
-// let dndDiv = document.querySelector("#dndDiv");
-// let dndText = document.querySelector("#dndText");
-// let dndBtn = document.querySelector("#dndBtn");
+// SELECTORS
+let sunDiv = document.querySelector("#sunDiv");
+let sunText = document.querySelector("#sunText");
+sunText.innerHTML = `
+For latitude __ and longitude __:<br/>
+Sunrise is at __<br/>
+Sunset is at __
+`;
+let sunBtn = document.querySelector("#sunBtn");
 
-// // ASYNC/AWAIT
-// async function getDungeonsAndDragonsData() {
-//   let response = await fetch(`https://www.dnd5eapi.co/api/races`);
-//   let data = await response.json();
-//   console.log(data);
-//   dndText.textContent = data.results.map((race) => race.name);
-// }
+// ASYNC/AWAIT
+async function getSunriseSunsetData() {
+  latitude = 40; // <-- try another number between -90 to 90
+  longitude = 5; // <-- try another number between -180 to 180
 
-// // EVENT LISTENERS
-// dndBtn.addEventListener("click", () => {
-//   getDungeonsAndDragonsData();
-// });
+  let response = await fetch(
+    `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}`
+  );
+  let data = await response.json();
+  console.log(data);
 
-//////////
-//////////
-//////////
+  sunText.innerHTML = `
+  For latitude ${latitude} and longitude ${longitude}:<br/>
+  Sunrise is at ${data.results.sunrise}<br/>
+  Sunset is at ${data.results.sunset}
+`;
+}
 
-// // SELECTORS
-// let sunDiv = document.querySelector("#sunDiv");
-// let sunText = document.querySelector("#sunText");
-// let sunBtn = document.querySelector("#sunBtn");
+// EVENT LISTENERS
+sunBtn.addEventListener("click", () => {
+  getSunriseSunsetData();
+});
 
-// // ASYNC/AWAIT
-// async function getSunriseSunsetData() {
-//   latitude = 40;
-//   longitude = 5;
+//////////////////////////////////////////////////////////////////////////
+// Level 3, Part 1 of 3
+// LEARNING CONCEPTS:  FETCH with GET METHOD + URL QUERY PARAMETERS + INPUT FIELDS
+// ACTIVITY NAME:      GET POKEMON IMAGE
+///////////////////////////////////////////////////////////////////////////
 
-//   let response = await fetch(
-//     `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}`
-//   );
-//   let data = await response.json();
-//   console.log(data);
+// SELECTORS
+let pokeDiv2 = document.querySelector("#pokeDiv2");
+let pokeText2 = document.querySelector("#pokeImg2");
+let pokeBtn2 = document.querySelector("#pokeBtn2");
 
-//   sunText.innerHTML = `
-//   For latitude ${latitude} and longitude ${longitude}:<br/>
-//   Sunrise at ${data.results.sunrise}<br/>
-//   Sunset at ${data.results.sunset}
-// `;
-// }
+// ASYNC/AWAIT
+async function getPokemonImg2() {
+  let pokemon = "pikachu"; // <-- try other pokemon names like: "charmander", "squirtle", "bulbasaur"
+  let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+  let data = await response.json();
+  console.log(data);
+  pokeImg2.src = data.sprites.front_default;
+}
 
-// // EVENT LISTENERS
-// sunBtn.addEventListener("click", () => {
-//   getSunriseSunsetData();
-// });
+// EVENT LISTENERS
+pokeBtn2.addEventListener("click", () => {
+  getPokemonImg2();
+});
 
-/////////
-////////
-//////////
+//////////////////////////////////////////////////////////////////////////
+// Level 3, Part 2 of 3
+// LEARNING CONCEPTS:  FETCH with GET METHOD + URL QUERY PARAMETERS + INPUT FIELDS
+// ACTIVITY NAME:      GET YUGIOH CARD IMAGE
+///////////////////////////////////////////////////////////////////////////
+
+// SELECTORS
+let yugiohDiv2 = document.querySelector("#yugiohDiv2");
+let yugiohImg2 = document.querySelector("#yugiohImg2");
+let yugiohBtn2 = document.querySelector("#yugiohBtn2");
+
+// ASYNC/AWAIT
+async function getYugiohCardImg2() {
+  let name = "Kuriboh"; // <-- try other name like: "Dark%Magician",  "Tornado%20Dragon", "Lava%Golem"
+  let response = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${name}`);
+  let data = await response.json();
+  console.log(data);
+  console.log(data.data);
+  console.log(data.data[0].card_images[0].image_url);
+
+  yugiohImg2.src = data.data[0].card_images[0].image_url;
+}
+
+// EVENT LISTENERS
+yugiohBtn2.addEventListener("click", () => {
+  getYugiohCardImg2();
+});
+
+//////////////////////////////////////////////////////////////////////////
+// Level 3, Part 3 of 3
+// LEARNING CONCEPTS:  FETCH with GET METHOD + URL QUERY PARAMETERS + INPUT FIELDS
+// ACTIVITY NAME:      Sunrise & Sunset
+///////////////////////////////////////////////////////////////////////////
+
+// SELECTORS
+let sunDiv2 = document.querySelector("#sunDiv2");
+let sunText2 = document.querySelector("#sunText2");
+sunText2.innerHTML = `
+For latitude __ and longitude __:<br/>
+Sunrise is at __<br/>
+Sunset is at __
+`;
+let sunBtn2 = document.querySelector("#sunBtn2");
+
+// ASYNC/AWAIT
+async function getSunriseSunsetData2() {
+  latitude = 40; // <-- try another number between -90 to 90
+  longitude = 5; // <-- try another number between -180 to 180
+
+  let response = await fetch(
+    `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}`
+  );
+  let data = await response.json();
+  console.log(data);
+
+  sunText2.innerHTML = `
+  For latitude ${latitude} and longitude ${longitude}:<br/>
+  Sunrise is at ${data.results.sunrise}<br/>
+  Sunset is at ${data.results.sunset}
+`;
+}
+
+// EVENT LISTENERS
+sunBtn2.addEventListener("click", () => {
+  getSunriseSunsetData2();
+});
+
+//////////////////////////////////////////////////////////////////////////
+// Level 4, Part 1 of 3
+// LEARNING CONCEPTS:  FETCH with POST METHOD
+// ACTIVITY NAME:
+///////////////////////////////////////////////////////////////////////////
 
 // Song Lyrics
 // https://lyricsovh.docs.apiary.io/#reference/0/lyrics-of-a-song
