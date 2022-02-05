@@ -28,3 +28,7 @@ img {
 button {
   width: 33vw;
 }
+
+#input {
+  text-align: center;
+}

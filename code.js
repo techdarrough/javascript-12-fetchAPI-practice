@@ -1,7 +1,15 @@
 //////////////////////////////////////////////////////////////////////////
-// Level 1, Part 1 of 3
-// LEARNING CONCEPTS:  FETCH with GET METHOD
-// ACTIVITY NAME:      RANDOM CAT PHOTO
+//  .---------.          .-------------------------------.
+//  | Level 1 |          | Learn Fetch with a Get Method |
+//  '---------'          '-------------------------------'
+//       ^      (\_/)                    ^
+//       '----- (O.o) -------------------'
+//              (> <)
+//////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////
+// Stage:     Level 1, Part 1 of 3
+// Activity:  Get Random Cat Photo
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
@@ -23,9 +31,8 @@ catBtn.addEventListener("click", () => {
 });
 
 //////////////////////////////////////////////////////////////////////////
-// Level 1, Part 2 of 3
-// LEARNING CONCEPTS:  FETCH with GET METHOD
-// ACTIVITY NAME:      RANDOM FOOD PHOTO
+// Stage:     Level 1, Part 2 of 3
+// Activity:  Get Random Food Photo
 ///////////////////////////////////////////////////////////////////////////
 
 // CREATING HTML & SELECTORS
@@ -47,9 +54,8 @@ foodBtn.addEventListener("click", () => {
 });
 
 //////////////////////////////////////////////////////////////////////////
-// Level 1, Part 3 of 3
-// LEARNING CONCEPTS:  FETCH with GET METHOD
-// ACTIVITY NAME:      RANDOM DOG PHOTO
+// Stage:     Level 1, Part 3 of 3
+// Activity:  Get Random Dog Photo
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
@@ -110,9 +116,9 @@ pokeBtn.addEventListener("click", () => {
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
-let yugiohDiv = document.querySelector("#yugiohDiv");
-let yugiohImg = document.querySelector("#yugiohImg");
-let yugiohBtn = document.querySelector("#yugiohBtn");
+let yugiDiv = document.querySelector("#yugiDiv");
+let yugiImg = document.querySelector("#yugiImg");
+let yugiBtn = document.querySelector("#yugiBtn");
 
 // ASYNC/AWAIT
 async function getYugiohCardImg() {
@@ -123,51 +129,38 @@ async function getYugiohCardImg() {
   console.log(data.data);
   console.log(data.data[0].card_images[0].image_url);
 
-  yugiohImg.src = data.data[0].card_images[0].image_url;
+  yugiImg.src = data.data[0].card_images[0].image_url;
 }
 
 // EVENT LISTENERS
-yugiohBtn.addEventListener("click", () => {
+yugiBtn.addEventListener("click", () => {
   getYugiohCardImg();
 });
 
 //////////////////////////////////////////////////////////////////////////
 // Level 2, Part 3 of 3
 // LEARNING CONCEPTS:  FETCH with GET METHOD + URL QUERY PARAMETERS
-// ACTIVITY NAME:      Sunrise & Sunset
+// ACTIVITY NAME:      Get Digimon Image
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
-let sunDiv = document.querySelector("#sunDiv");
-let sunText = document.querySelector("#sunText");
-sunText.innerHTML = `
-For latitude __ and longitude __:<br/>
-Sunrise is at __<br/>
-Sunset is at __
-`;
-let sunBtn = document.querySelector("#sunBtn");
+let digiDiv = document.querySelector("#digiDiv");
+let digiImg = document.querySelector("#digiImg");
+let digiInput = document.querySelector("#digiInput");
+let digiBtn = document.querySelector("#digiBtn");
 
 // ASYNC/AWAIT
-async function getSunriseSunsetData() {
-  latitude = 40; // <-- try another number between -90 to 90
-  longitude = 5; // <-- try another number between -180 to 180
-
-  let response = await fetch(
-    `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}`
-  );
+async function getDigimonImg() {
+  let name = "Agumon";
+  let response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/${name}`);
   let data = await response.json();
   console.log(data);
-
-  sunText.innerHTML = `
-  For latitude ${latitude} and longitude ${longitude}:<br/>
-  Sunrise is at ${data.results.sunrise}<br/>
-  Sunset is at ${data.results.sunset}
-`;
+  digiImg.src = data[0].img;
 }
 
 // EVENT LISTENERS
-sunBtn.addEventListener("click", () => {
-  getSunriseSunsetData();
+digiBtn.addEventListener("click", () => {
+  getDigimonImg();
 });
 
 //////////////////////////////////////////////////////////////////////////
@@ -179,11 +172,12 @@ sunBtn.addEventListener("click", () => {
 // SELECTORS
 let pokeDiv2 = document.querySelector("#pokeDiv2");
 let pokeText2 = document.querySelector("#pokeImg2");
+let pokeInput2 = document.querySelector("#pokeInput2");
 let pokeBtn2 = document.querySelector("#pokeBtn2");
 
 // ASYNC/AWAIT
 async function getPokemonImg2() {
-  let pokemon = "pikachu"; // <-- try other pokemon names like: "charmander", "squirtle", "bulbasaur"
+  let pokemon = pokeInput2.value;
   let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
   let data = await response.json();
   console.log(data);
@@ -202,68 +196,56 @@ pokeBtn2.addEventListener("click", () => {
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
-let yugiohDiv2 = document.querySelector("#yugiohDiv2");
-let yugiohImg2 = document.querySelector("#yugiohImg2");
-let yugiohBtn2 = document.querySelector("#yugiohBtn2");
+let yugiDiv2 = document.querySelector("#yugiDiv2");
+let yugiImg2 = document.querySelector("#yugiImg2");
+let yugiInput2 = document.querySelector("#yugiInput2");
+let yugiBtn2 = document.querySelector("#yugiBtn2");
 
 // ASYNC/AWAIT
 async function getYugiohCardImg2() {
-  let name = "Kuriboh"; // <-- try other name like: "Dark%Magician",  "Tornado%20Dragon", "Lava%Golem"
+  let name = yugiInput2.value;
   let response = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${name}`);
   let data = await response.json();
   console.log(data);
   console.log(data.data);
   console.log(data.data[0].card_images[0].image_url);
 
-  yugiohImg2.src = data.data[0].card_images[0].image_url;
+  yugiImg2.src = data.data[0].card_images[0].image_url;
 }
 
 // EVENT LISTENERS
-yugiohBtn2.addEventListener("click", () => {
+yugiBtn2.addEventListener("click", () => {
   getYugiohCardImg2();
 });
 
 //////////////////////////////////////////////////////////////////////////
 // Level 3, Part 3 of 3
 // LEARNING CONCEPTS:  FETCH with GET METHOD + URL QUERY PARAMETERS + INPUT FIELDS
-// ACTIVITY NAME:      Sunrise & Sunset
+// ACTIVITY NAME:      Get Digimon Image
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
-let sunDiv2 = document.querySelector("#sunDiv2");
-let sunText2 = document.querySelector("#sunText2");
-sunText2.innerHTML = `
-For latitude __ and longitude __:<br/>
-Sunrise is at __<br/>
-Sunset is at __
-`;
-let sunBtn2 = document.querySelector("#sunBtn2");
+let digiDiv2 = document.querySelector("#digiDiv2");
+let digiText2 = document.querySelector("#digiImg2");
+let digiInput2 = document.querySelector("#digiInput2");
+let digiBtn2 = document.querySelector("#digiBtn2");
 
 // ASYNC/AWAIT
-async function getSunriseSunsetData2() {
-  latitude = 40; // <-- try another number between -90 to 90
-  longitude = 5; // <-- try another number between -180 to 180
-
-  let response = await fetch(
-    `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}`
-  );
+async function getDigimonImg2() {
+  let name = digiInput2.value;
+  let response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/${name}`);
   let data = await response.json();
   console.log(data);
-
-  sunText2.innerHTML = `
-  For latitude ${latitude} and longitude ${longitude}:<br/>
-  Sunrise is at ${data.results.sunrise}<br/>
-  Sunset is at ${data.results.sunset}
-`;
+  digiImg2.src = data[0].img;
 }
 
 // EVENT LISTENERS
-sunBtn2.addEventListener("click", () => {
-  getSunriseSunsetData2();
+digiBtn2.addEventListener("click", () => {
+  getDigimonImg2();
 });
 
 //////////////////////////////////////////////////////////////////////////
-// Level 4, Part 1 of 3
+// Level 5, Part 1 of 3
 // LEARNING CONCEPTS:  FETCH with POST METHOD
 // ACTIVITY NAME:
 ///////////////////////////////////////////////////////////////////////////
