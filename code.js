@@ -381,36 +381,3 @@ async function getDigimonImg4() {
 digiBtn4.addEventListener("click", () => {
   getDigimonImg4();
 });
-
-//////////////////////////////////////////////////////////////////////////
-// Level 5, Part 1 of 3
-// LEARNING CONCEPTS:  FETCH with POST METHOD
-// ACTIVITY NAME:
-///////////////////////////////////////////////////////////////////////////
-
-// Song Lyrics
-// https://lyricsovh.docs.apiary.io/#reference/0/lyrics-of-a-song
-
-// Get emoji
-// https://github.com/cheatsnake/emojihub
-
-// Build charts quickly
-// https://quickchart.io/
-
-// Get Book Info
-// http://www.penguinrandomhouse.biz/webservices/rest/
-
-// Live Cryptocurrency Data
-// https://www.coingecko.com/en/api
-
-// Companies Annual Reports
-// https://www.sec.gov/edgar/sec-api-documentation
-
-// Password Generator
-// https://github.com/fawazsullia/password-generator/
-
-// Send POST to get an AI's text sentiment analysis
-// https://sentim-api.herokuapp.com/
-
-// Send POST to get language translation
-// https://libretranslate.com/docs/
