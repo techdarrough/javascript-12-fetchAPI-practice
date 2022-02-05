@@ -105,3 +105,23 @@ async function getSunriseSunsetData2() {
 sunBtn2.addEventListener("click", () => {
   getSunriseSunsetData2();
 });
+
+// SELECTORS
+const yugiDiv3 = document.querySelector("#yugiDiv3");
+const yugiImg3 = document.querySelector("#yugiImg3");
+const yugiInput3 = document.querySelector("#yugiInput3");
+const yugiBtn3 = document.querySelector("#yugiBtn3");
+
+// ASYNC/AWAIT
+async function getYugiohCardImg3() {
+  let name = rickInput3.value;
+  let response = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${name}`);
+  let data = await response.json();
+  console.log(data);
+  rickImg3.src = data.data[0].card_images[0].image_url;
+}
+
+// EVENT LISTENERS
+rickBtn3.addEventListener("click", () => {
+  getYugiohCardImg3();
+});

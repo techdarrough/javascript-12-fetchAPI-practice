@@ -16,9 +16,9 @@
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
-let catDiv = document.querySelector("#catDiv");
-let catImg = document.querySelector("#catImg");
-let catBtn = document.querySelector("#catBtn");
+const catDiv = document.querySelector("#catDiv");
+const catImg = document.querySelector("#catImg");
+const catBtn = document.querySelector("#catBtn");
 
 // ASYNC/AWAIT
 async function getNewCatImg() {
@@ -39,9 +39,9 @@ catBtn.addEventListener("click", () => {
 ///////////////////////////////////////////////////////////////////////////
 
 // CREATING HTML & SELECTORS
-let foodDiv = document.querySelector("#foodDiv");
-let foodImg = document.querySelector("#foodImg");
-let foodBtn = document.querySelector("#foodBtn");
+const foodDiv = document.querySelector("#foodDiv");
+const foodImg = document.querySelector("#foodImg");
+const foodBtn = document.querySelector("#foodBtn");
 
 // ASYNC/AWAIT
 async function getNewFoodImg() {
@@ -62,9 +62,9 @@ foodBtn.addEventListener("click", () => {
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
-let dogDiv = document.querySelector("#dogDiv");
-let dogImg = document.querySelector("#dogImg");
-let dogBtn = document.querySelector("#dogBtn");
+const dogDiv = document.querySelector("#dogDiv");
+const dogImg = document.querySelector("#dogImg");
+const dogBtn = document.querySelector("#dogBtn");
 
 // ASYNC/AWAIT
 async function getNewDogImg() {
@@ -106,22 +106,22 @@ dogBtn.addEventListener("click", () => {
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
-let pokeDiv = document.querySelector("#pokeDiv");
-let pokeText = document.querySelector("#pokeImg");
-let pokeBtn = document.querySelector("#pokeBtn");
+const pokeDiv2 = document.querySelector("#pokeDiv2");
+const pokeText2 = document.querySelector("#pokeImg2");
+const pokeBtn2 = document.querySelector("#pokeBtn2");
 
 // ASYNC/AWAIT
-async function getPokemonImg() {
+async function getPokemonImg2() {
   let pokemon = "pikachu"; // <-- try other pokemon names like: "charmander", "squirtle", "bulbasaur"
   let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
   let data = await response.json();
   console.log(data);
-  pokeImg.src = data.sprites.front_default;
+  pokeImg2.src = data.sprites.front_default;
 }
 
 // EVENT LISTENERS
-pokeBtn.addEventListener("click", () => {
-  getPokemonImg();
+pokeBtn2.addEventListener("click", () => {
+  getPokemonImg2();
 });
 
 //////////////////////////////////////////////////////////////////////////
@@ -130,25 +130,21 @@ pokeBtn.addEventListener("click", () => {
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
-let yugiDiv = document.querySelector("#yugiDiv");
-let yugiImg = document.querySelector("#yugiImg");
-let yugiBtn = document.querySelector("#yugiBtn");
+const rickDiv2 = document.querySelector("#rickDiv2");
+const rickImg2 = document.querySelector("#rickImg2");
+const rickBtn2 = document.querySelector("#rickBtn2");
 
 // ASYNC/AWAIT
-async function getYugiohCardImg() {
-  let name = "Kuriboh"; // <-- try other name like: "Dark%Magician",  "Tornado%20Dragon", "Lava%Golem"
-  let response = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${name}`);
+async function getRickMortyImg2() {
+  let name = "rick"; // <-- try other name like:
+  let response = await fetch(`https://rickandmortyapi.com/api/character/?name=rick`);
   let data = await response.json();
-  console.log(data);
-  console.log(data.data);
-  console.log(data.data[0].card_images[0].image_url);
-
-  yugiImg.src = data.data[0].card_images[0].image_url;
+  rickImg2.src = data.results[0].image;
 }
 
 // EVENT LISTENERS
-yugiBtn.addEventListener("click", () => {
-  getYugiohCardImg();
+rickBtn2.addEventListener("click", () => {
+  getRickMortyImg2();
 });
 
 //////////////////////////////////////////////////////////////////////////
@@ -157,23 +153,23 @@ yugiBtn.addEventListener("click", () => {
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
-let digiDiv = document.querySelector("#digiDiv");
-let digiImg = document.querySelector("#digiImg");
-let digiInput = document.querySelector("#digiInput");
-let digiBtn = document.querySelector("#digiBtn");
+const digiDiv2 = document.querySelector("#digiDiv2");
+const digiImg2 = document.querySelector("#digiImg2");
+const digiInput2 = document.querySelector("#digiInput2");
+const digiBtn2 = document.querySelector("#digiBtn2");
 
 // ASYNC/AWAIT
-async function getDigimonImg() {
+async function getDigimonImg2() {
   let name = "Agumon";
   let response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/${name}`);
   let data = await response.json();
   console.log(data);
-  digiImg.src = data[0].img;
+  digiImg2.src = data[0].img;
 }
 
 // EVENT LISTENERS
-digiBtn.addEventListener("click", () => {
-  getDigimonImg();
+digiBtn2.addEventListener("click", () => {
+  getDigimonImg2();
 });
 
 //////////////////////////////////////////////////////////////////////////
@@ -196,76 +192,73 @@ digiBtn.addEventListener("click", () => {
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
-let pokeDiv2 = document.querySelector("#pokeDiv2");
-let pokeImg2 = document.querySelector("#pokeImg2");
-let pokeInput2 = document.querySelector("#pokeInput2");
-let pokeBtn2 = document.querySelector("#pokeBtn2");
+const pokeDiv3 = document.querySelector("#pokeDiv3");
+const pokeImg3 = document.querySelector("#pokeImg3");
+const pokeInput3 = document.querySelector("#pokeInput3");
+const pokeBtn3 = document.querySelector("#pokeBtn3");
 
 // ASYNC/AWAIT
-async function getPokemonImg2() {
-  let pokemon = pokeInput2.value;
+async function getPokemonImg3() {
+  let pokemon = pokeInput3.value;
   let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
   let data = await response.json();
   console.log(data);
-  pokeImg2.src = data.sprites.front_default;
+  pokeImg3.src = data.sprites.front_default;
 }
 
 // EVENT LISTENERS
-pokeBtn2.addEventListener("click", () => {
-  getPokemonImg2();
+pokeBtn3.addEventListener("click", () => {
+  getPokemonImg3();
 });
 
 //////////////////////////////////////////////////////////////////////////
 // Stage:     Level 3, Part 2 of 3
-// Activity:  Yugioh Card Image with Fetch Get Method + Query Parameters + Input Fields
+// Activity:  Rick & Morty Image with Fetch Get Method + Query Parameters + Input Fields
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
-let yugiDiv2 = document.querySelector("#yugiDiv2");
-let yugiImg2 = document.querySelector("#yugiImg2");
-let yugiInput2 = document.querySelector("#yugiInput2");
-let yugiBtn2 = document.querySelector("#yugiBtn2");
+const rickDiv3 = document.querySelector("#rickDiv3");
+const rickImg3 = document.querySelector("#rickImg3");
+const rickInput3 = document.querySelector("#rickInput3");
+const rickBtn3 = document.querySelector("#rickBtn3");
 
 // ASYNC/AWAIT
-async function getYugiohCardImg2() {
-  let name = yugiInput2.value;
-  let response = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${name}`);
+async function getRickMortyImg3() {
+  let name = rickInput3.value;
+  let response = await fetch(`https://rickandmortyapi.com/api/character/?name=${name}`);
   let data = await response.json();
   console.log(data);
-  console.log(data.data);
-  console.log(data.data[0].card_images[0].image_url);
-
-  yugiImg2.src = data.data[0].card_images[0].image_url;
+  rickImg3.src = data.results[0].image;
 }
 
 // EVENT LISTENERS
-yugiBtn2.addEventListener("click", () => {
-  getYugiohCardImg2();
+rickBtn3.addEventListener("click", () => {
+  getRickMortyImg3();
 });
 
 //////////////////////////////////////////////////////////////////////////
-// Stage:     Level 3, Part 1 of 3
+// Stage:     Level 3, Part 3 of 3
 // Activity:  Digimon Image with Fetch Get Method + Query Parameters + Input Fields
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
-let digiDiv2 = document.querySelector("#digiDiv2");
-let digiImg2 = document.querySelector("#digiImg2");
-let digiInput2 = document.querySelector("#digiInput2");
-let digiBtn2 = document.querySelector("#digiBtn2");
+const digiDiv3 = document.querySelector("#digiDiv3");
+const digiImg3 = document.querySelector("#digiImg3");
+const digiInput3 = document.querySelector("#digiInput3");
+const digiBtn3 = document.querySelector("#digiBtn3");
 
 // ASYNC/AWAIT
-async function getDigimonImg2() {
-  let name = digiInput2.value;
+async function getDigimonImg3() {
+  let name = digiInput3.value;
   let response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/${name}`);
   let data = await response.json();
   console.log(data);
-  digiImg2.src = data[0].img;
+  digiImg3.src = data[0].img;
 }
 
 // EVENT LISTENERS
-digiBtn2.addEventListener("click", () => {
-  getDigimonImg2();
+digiBtn3.addEventListener("click", () => {
+  getDigimonImg3();
 });
 
 //////////////////////////////////////////////////////////////////////////
@@ -283,6 +276,111 @@ digiBtn2.addEventListener("click", () => {
 //                       + Fetch -> Map Method -> Dropdown List
 //
 //////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////
+// Stage:     Level 4, Part 1 of 3
+// Activity:  Pokemon Image with Fetch Get Method + Query Parameters + Dropdown List
+///////////////////////////////////////////////////////////////////////////
+
+// SELECTORS
+const pokeDiv4 = document.querySelector("#pokeDiv4");
+const pokeImg4 = document.querySelector("#pokeImg4");
+const pokeList4 = document.querySelector("#pokeList4");
+const pokeBtn4 = document.querySelector("#pokeBtn4");
+
+// ASYNC/AWAIT
+async function createPokemonDropDownList() {
+  let response = await fetch(`https://pokeapi.co/api/v2/pokemon`);
+  let data = await response.json();
+  let myArray = data.results;
+  let pokemonNames = myArray.map((pokemon) => pokemon.name);
+  pokeList4.innerHTML = pokemonNames.map((name) => `<option value=${name}>${name}</option>`);
+}
+createPokemonDropDownList();
+
+async function getPokemonImg4() {
+  let pokemon = pokeList4.value;
+  let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+  let data = await response.json();
+  pokeImg4.src = data.sprites.front_default;
+}
+
+// EVENT LISTENERS
+pokeBtn4.addEventListener("click", () => {
+  getPokemonImg4();
+});
+
+//////////////////////////////////////////////////////////////////////////
+// Stage:     Level 4, Part 2 of 3
+// Activity:  Rick & Morty Image with Fetch Get Method + Query Parameters + Dropdown List
+///////////////////////////////////////////////////////////////////////////
+
+// SELECTORS
+const rickDiv4 = document.querySelector("#rickDiv4");
+const rickImg4 = document.querySelector("#rickImg4");
+const rickList4 = document.querySelector("#rickList4");
+const rickBtn4 = document.querySelector("#rickBtn4");
+
+// ASYNC/AWAIT
+async function createRickMortyDropDownList() {
+  let response = await fetch(`https://rickandmortyapi.com/api/character`);
+  let data = await response.json();
+  let myArray = data.results;
+  console.log(myArray);
+  let names = myArray.map((character) => {
+    let fullName = character.name;
+    let firstName = fullName.split(" ")[0];
+    return firstName.toLowerCase();
+  });
+  rickList4.innerHTML = names.map((name) => `<option value=${name}>${name}</option>`);
+}
+createRickMortyDropDownList();
+
+async function getRickMortyImg4() {
+  let name = rickList4.value;
+  let response = await fetch(`https://rickandmortyapi.com/api/character/?name=${name}`);
+  let data = await response.json();
+  console.log(data);
+  rickImg4.src = data.results[0].image;
+}
+
+// EVENT LISTENERS
+rickBtn4.addEventListener("click", () => {
+  getRickMortyImg4();
+});
+
+//////////////////////////////////////////////////////////////////////////
+// Stage:     Level 4, Part 3 of 3
+// Activity:  Digimon Image with Fetch Get Method + Query Parameters + Dropdown List
+///////////////////////////////////////////////////////////////////////////
+
+// SELECTORS
+const digiDiv4 = document.querySelector("#digiDiv4");
+const digiImg4 = document.querySelector("#digiImg4");
+const digiList4 = document.querySelector("#digiList4");
+const digiInput4 = document.querySelector("#digiInput4");
+const digiBtn4 = document.querySelector("#digiBtn4");
+
+// ASYNC/AWAIT
+async function createDigimonDropDownList() {
+  let response = await fetch(`https://digimon-api.vercel.app/api/digimon`);
+  let data = await response.json();
+  let list = data.map((digimon) => digimon.name);
+  digiList4.innerHTML = list.map((digimon) => `<option value=${digimon}>${digimon}</option>`);
+}
+createDigimonDropDownList();
+
+async function getDigimonImg4() {
+  let name = digiList4.value;
+  let response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/${name}`);
+  let data = await response.json();
+  digiImg4.src = data[0].img;
+}
+
+// EVENT LISTENERS
+digiBtn4.addEventListener("click", () => {
+  getDigimonImg4();
+});
 
 //////////////////////////////////////////////////////////////////////////
 // Level 5, Part 1 of 3
