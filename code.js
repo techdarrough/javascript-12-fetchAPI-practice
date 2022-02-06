@@ -256,8 +256,7 @@ const digiBtn3 = document.querySelector("#digiBtn3");
 
 // ASYNC/AWAIT
 async function getDigimonImg3() {
-  // update the name variable to equal the value of digiInput3, and change the fetch url to dynamically accept this variable
-  // let name = ???;  // <--- 👈 update your code here
+  // let name = ???;  // <--- 👈 update your code here  // set this variable equal to digiInput3's value property
   let response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/Argumon`); // <--- 👈 update your code here
   let data = await response.json();
   console.log(data);
