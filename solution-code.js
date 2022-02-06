@@ -1,11 +1,3 @@
-// Instructions:
-
-// The goal of this activity is to:
-// - show two completed examples,
-// - then encourage the student to fix the missing code in part 3 of each level
-
-// Good luck, may the force be with you, may the odds be ever in your favor, and live long and prosper
-
 //////////////////////////////////////////////////////////////////////////
 //        __       ___________    ____  _______  __          __
 //       |  |     |   ____\   \  /   / |   ____||  |        /_ |
@@ -33,7 +25,7 @@ async function getNewCatImg() {
   let response = await fetch("https://aws.random.cat/meow");
   let data = await response.json();
   console.log(data);
-  catImg.src = data.file; // render cat image to the page
+  catImg.src = data.file;
 }
 
 // EVENT LISTENERS
@@ -43,7 +35,30 @@ catBtn.addEventListener("click", () => {
 
 //////////////////////////////////////////////////////////////////////////
 // Stage:     Level 1, Part 2 of 3
-// Example:   Random Dog Photo with Fetch Get Method
+// Example:   Random Food Photo with Fetch Get Method
+///////////////////////////////////////////////////////////////////////////
+
+// CREATING HTML & SELECTORS
+const foodDiv = document.querySelector("#foodDiv");
+const foodImg = document.querySelector("#foodImg");
+const foodBtn = document.querySelector("#foodBtn");
+
+// ASYNC/AWAIT
+async function getNewFoodImg() {
+  let response = await fetch("https://foodish-api.herokuapp.com/api");
+  let data = await response.json();
+  console.log(data);
+  foodImg.src = data.image; // <--- update your code here
+}
+
+// EVENT LISTENERS
+foodBtn.addEventListener("click", () => {
+  getNewFoodImg();
+});
+
+//////////////////////////////////////////////////////////////////////////
+// Stage:     Level 1, Part 3 of 3
+// Activity:  Random Dog Photo with Fetch Get Method
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
@@ -58,7 +73,7 @@ async function getNewDogImg() {
   console.log(data);
 
   // mp4 file extensions causes an error,
-  // so if the file extension is an mp4, then re-run this function
+  // so this if block re-runs this function if the file extension is an mp4
   if (data.url.slice(-3) === "mp4") {
     return getNewDogImg();
   }
@@ -70,30 +85,6 @@ async function getNewDogImg() {
 // EVENT LISTENERS
 dogBtn.addEventListener("click", () => {
   getNewDogImg();
-});
-
-//////////////////////////////////////////////////////////////////////////
-// Stage:     Level 1, Part 3 of 3
-// Activity:  Random Food Photo with Fetch Get Method
-// ToDo:      Read the console log, then update what foodImg.src is set equal to
-///////////////////////////////////////////////////////////////////////////
-
-// CREATING HTML & SELECTORS
-const foodDiv = document.querySelector("#foodDiv");
-const foodImg = document.querySelector("#foodImg");
-const foodBtn = document.querySelector("#foodBtn");
-
-// ASYNC/AWAIT
-async function getNewFoodImg() {
-  let response = await fetch("https://foodish-api.herokuapp.com/api");
-  let data = await response.json();
-  console.log(data);
-  // foodImg.src = ??? // <--- 👈 update your code here
-}
-
-// EVENT LISTENERS
-foodBtn.addEventListener("click", () => {
-  getNewFoodImg();
 });
 
 //////////////////////////////////////////////////////////////////////////
@@ -145,8 +136,8 @@ const rickBtn2 = document.querySelector("#rickBtn2");
 
 // ASYNC/AWAIT
 async function getRickMortyImg2() {
-  let name = "rick"; // <-- try other name like: morty, beth, summer, etc.
-  let response = await fetch(`https://rickandmortyapi.com/api/character/?name=${name}`); //  the question mark indicates a query search, name=${name} is a key-value pair
+  let name = "rick"; // <-- try other name like:
+  let response = await fetch(`https://rickandmortyapi.com/api/character/?name=rick`);
   let data = await response.json();
   rickImg2.src = data.results[0].image;
 }
@@ -169,9 +160,11 @@ const digiBtn2 = document.querySelector("#digiBtn2");
 
 // ASYNC/AWAIT
 async function getDigimonImg2() {
-  // 👇 update your code here
-  // do a fetch call that renders the digimon name 'Agumon' to the browser page
-  // here is the digimon API documentation https://digimon-api.vercel.app/
+  let name = "Agumon";
+  let response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/${name}`);
+  let data = await response.json();
+  console.log(data);
+  digiImg2.src = data[0].img;
 }
 
 // EVENT LISTENERS
@@ -256,9 +249,8 @@ const digiBtn3 = document.querySelector("#digiBtn3");
 
 // ASYNC/AWAIT
 async function getDigimonImg3() {
-  // update the name variable to equal the value of digiInput3, and change the fetch url to dynamically accept this variable
-  // let name = ???;  // <--- 👈 update your code here
-  let response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/Argumon`); // <--- 👈 update your code here
+  let name = digiInput3.value;
+  let response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/${name}`);
   let data = await response.json();
   console.log(data);
   digiImg3.src = data[0].img;
@@ -287,7 +279,7 @@ digiBtn3.addEventListener("click", () => {
 
 //////////////////////////////////////////////////////////////////////////
 // Stage:     Level 4, Part 1 of 3
-// Example:   Pokemon Dropdown List with Fetch Get Method + Query Parameters + Map Higher Order Function
+// Example:   Pokemon Image with Fetch Get Method + Query Parameters + Dropdown List
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
@@ -320,7 +312,7 @@ pokeBtn4.addEventListener("click", () => {
 
 //////////////////////////////////////////////////////////////////////////
 // Stage:     Level 4, Part 2 of 3
-// Example:   Rick & Morty Dropdown List with Fetch Get Method + Query Parameters + Map Higher Order Function
+// Example:   Rick & Morty Image with Fetch Get Method + Query Parameters + Dropdown List
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
@@ -359,7 +351,7 @@ rickBtn4.addEventListener("click", () => {
 
 //////////////////////////////////////////////////////////////////////////
 // Stage:     Level 4, Part 3 of 3
-// Activity:  Digimon Dropdown List with Fetch Get Method + Query Parameters + Map Higher Order Function
+// Activity:  Digimon Image with Fetch Get Method + Query Parameters + Dropdown List
 ///////////////////////////////////////////////////////////////////////////
 
 // SELECTORS
@@ -371,10 +363,10 @@ const digiBtn4 = document.querySelector("#digiBtn4");
 
 // ASYNC/AWAIT
 async function createDigimonDropDownList() {
-  let response = await fetch(`https://digimon-api.vercel.app/api/digimon`); // fetchs a list of all digimon
+  let response = await fetch(`https://digimon-api.vercel.app/api/digimon`);
   let data = await response.json();
-  // let list = ??? // 👈 update your code here // use the map method to create a new array that only has digimon's name
-  digiList4.innerHTML = list.map((digimon) => `<option value=${digimon}>${digimon}</option>`); // creates dropdown list options from an array that only has the digimon's name
+  let list = data.map((digimon) => digimon.name);
+  digiList4.innerHTML = list.map((digimon) => `<option value=${digimon}>${digimon}</option>`);
 }
 createDigimonDropDownList();
 
