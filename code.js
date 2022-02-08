@@ -33,7 +33,7 @@ async function getNewCatImg() {
   let response = await fetch("https://aws.random.cat/meow");
   let data = await response.json();
   console.log(data);
-  catImg.src = data.file; // render cat image to the page
+  catImg.src = data.url; // render cat image to the page
 }
 
 // EVENT LISTENERS
@@ -88,7 +88,7 @@ async function getNewFoodImg() {
   let response = await fetch("https://foodish-api.herokuapp.com/api");
   let data = await response.json();
   console.log(data);
-  // foodImg.src = ??? // <--- 👈 update your code here
+  foodImg.src = data.url // <--- 👈 update your code here
 }
 
 // EVENT LISTENERS
