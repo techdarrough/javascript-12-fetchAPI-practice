@@ -32,8 +32,8 @@ const catBtn = document.querySelector("#catBtn");
 async function getNewCatImg() {
   let response = await fetch("https://aws.random.cat/meow");
   let data = await response.json();
-  console.log(data);
-  catImg.src = data.url; // render cat image to the page
+  // console.log(data);
+  catImg.src = data.file; // render cat image to the page
 }
 
 // EVENT LISTENERS
@@ -55,7 +55,7 @@ const dogBtn = document.querySelector("#dogBtn");
 async function getNewDogImg() {
   let response = await fetch("https://random.dog/woof.json");
   let data = await response.json();
-  console.log(data);
+  // console.log(data);
 
   // mp4 file extensions causes an error,
   // so if the file extension is an mp4, then re-run this function
@@ -65,6 +65,7 @@ async function getNewDogImg() {
 
   // render dog image to the page
   dogImg.src = data.url;
+  
 }
 
 // EVENT LISTENERS
@@ -87,8 +88,8 @@ const foodBtn = document.querySelector("#foodBtn");
 async function getNewFoodImg() {
   let response = await fetch("https://foodish-api.herokuapp.com/api");
   let data = await response.json();
-  console.log(data);
-  foodImg.src = data.url // <--- 👈 update your code here
+  // console.log(data);
+  foodImg.src = data.image // <--- 👈 update your code here
 }
 
 // EVENT LISTENERS
@@ -124,7 +125,7 @@ async function getPokemonImg2() {
   let pokemon = "pikachu"; // <-- try other pokemon names like: "charmander", "squirtle", "bulbasaur"
   let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
   let data = await response.json();
-  console.log(data);
+  // console.log(data);
   pokeImg2.src = data.sprites.front_default;
 }
 
@@ -169,6 +170,12 @@ const digiBtn2 = document.querySelector("#digiBtn2");
 
 // ASYNC/AWAIT
 async function getDigimonImg2() {
+  let name = "Agumon"; // <-- try other name like: morty, beth, summer, etc.
+  let response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/${name}`); //  the question mark indicates a query search, name=${name} is a key-value pair
+  let data = await response.json();
+  digiImg2.src = data[0].img;
+  
+  // console.log(data.src)
   // 👇 update your code here
   // do a fetch call that renders the digimon name 'Agumon' to the browser page
   // here is the digimon API documentation https://digimon-api.vercel.app/
@@ -256,8 +263,8 @@ const digiBtn3 = document.querySelector("#digiBtn3");
 
 // ASYNC/AWAIT
 async function getDigimonImg3() {
-  // let name = ???;  // <--- 👈 update your code here  // set this variable equal to digiInput3's value property
-  let response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/Argumon`); // <--- 👈 update your code here
+  let name = digiInput3.value;  // <--- 👈 update your code here  // set this variable equal to digiInput3's value property
+  let response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/${name}`); // <--- 👈 update your code here
   let data = await response.json();
   console.log(data);
   digiImg3.src = data[0].img;
@@ -372,7 +379,7 @@ const digiBtn4 = document.querySelector("#digiBtn4");
 async function createDigimonDropDownList() {
   let response = await fetch(`https://digimon-api.vercel.app/api/digimon`); // fetchs a list of all digimon
   let data = await response.json();
-  // let list = ??? // 👈 update your code here // use the map method to create a new array that only has digimon's name
+  let list = data.map((digimon) => digimon.name); // 👈 update your code here // use the map method to create a new array that only has digimon's name
   digiList4.innerHTML = list.map((digimon) => `<option value=${digimon}>${digimon}</option>`); // creates dropdown list options from an array that only has the digimon's name
 }
 createDigimonDropDownList();

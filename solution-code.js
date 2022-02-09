@@ -164,7 +164,7 @@ async function getDigimonImg2() {
   let response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/${name}`);
   let data = await response.json();
   console.log(data);
-  digiImg2.src = data[0].img;
+ 
 }
 
 // EVENT LISTENERS
